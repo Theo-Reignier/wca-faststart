@@ -99,13 +99,7 @@ Download the latest '**watsonx Code Assistant for Enterprise Java Applications**
 
 > **Note:** You will notice that 2 VSCode extensions are automatically downloaded. This is because the '**watsonx Code Assistant for Enterprise Java Applications**' extension depends on some services provided by the core '**watsonx Code Assistant**' extension.
 
-## 5. WCA - EJA API Key
-
-The VSCode extension requires a connection to a **watsonx Code Assistant** SaaS service. The authentication to the backend service can be completed using an API key.
-
-As of now, the API Key will be provided by IBMers. Please reach out to IBMers for help on this.
-
-## 6. Setting up WCA - EJA Extension
+## 5. Setting up WCA - EJA Extension
 
 Login with the WCA - EJA API Key at the bottom left corner of VSCode. After successfully signing in, the number indicator should be gone.
 
@@ -114,7 +108,7 @@ Login with the WCA - EJA API Key at the bottom left corner of VSCode. After succ
 > **Note:** If you encounter an issue during authorization that says **"administrator needs to associate you with a deployment space"**, please reach out to IBMers to set up the deployment space again for your API Key.
 ![screenshot](../images/VSC_WCA4J_Sign_in_error_1.png)
 
-## 7. Installing Liberty Tools and Java Extension
+## 6. Installing Liberty Tools and Java Extension
 
 Install the Liberty Tools and Extension Pack for Java extensions from the VSCode marketplace as shown below.
 
@@ -122,7 +116,55 @@ Install the Liberty Tools and Extension Pack for Java extensions from the VSCode
 
 ![screenshot](../images/VSCode-pack-for-java.png)
 
-## 8. Start Using watsonx Code Assistant
+## 7. Connectivity test to IBM Cloud
+
+To be able to run the hands-on labs from your workstation, you will need to be able to reach the **watsonx Code Assistant** SaaS instance which is hosted in our Dallas datacenter in the US South region. To validate that you are able to reach it by running the following commands in a terminal (output should be similar to the following):
+
+```sh
+$ ping us-south.ml.cloud.ibm.com
+```
+
+The ouptut should look like the following (you can stop it after a few packets by pressing `CTRL+C`):
+
+```
+$ ping us-south.ml.cloud.ibm.com
+PING us-south.ml.cloud.ibm.com (104.17.182.188): 56 data bytes
+64 bytes from 104.17.182.188: icmp_seq=0 ttl=52 time=29.392 ms
+64 bytes from 104.17.182.188: icmp_seq=1 ttl=52 time=25.007 ms
+^C
+--- us-south.ml.cloud.ibm.com ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+round-trip min/avg/max/stddev = 25.007/27.200/29.392/2.192 ms
+```
+
+Then test the second endpoint of IBM Cloud Identity and Access Management:
+
+```sh
+$ ping iam.cloud.ibm.com
+```
+
+The ouptut should look like the following (you can stop it after a few packets by pressing `CTRL+C`):
+
+```
+(base) 
+❯ ping 
+PING iam.cloud.ibm.com (23.192.118.8): 56 data bytes
+64 bytes from 23.192.118.8: icmp_seq=0 ttl=58 time=21.100 ms
+64 bytes from 23.192.118.8: icmp_seq=1 ttl=58 time=18.565 ms
+^C
+--- iam.cloud.ibm.com ping statistics ---
+2 packets transmitted, 2 packets received, 0.0% packet loss
+```
+
+**Note:** if you see that packets are not being transmitted, reach out to an IBMer (preferrably before the workshop) to find a backup option for you to run the labs.
+
+## 8. WCA - EJA API Key
+
+The VSCode extension requires a connection to a **watsonx Code Assistant** SaaS service. The authentication to the backend service can be completed using an API key.
+
+As of now, the API Key will be provided by IBMers. Please reach out to IBMers for help on this.
+
+## 9. Start Using watsonx Code Assistant
 
 You can check if your API Key is set up correctly by navigating to the **watsonx Code Assistant** tab and opening the chat window to chat with the model.
 ![screenshot](../images/VSC_chat_with_model.png)
